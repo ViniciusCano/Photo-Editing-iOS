@@ -125,12 +125,9 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
         }
     }
     
-    func performFilter(_ inputImage: UIImage, orientation: Int32?)
-        -> UIImage?
-    {
+    func performFilter(_ inputImage: UIImage, orientation: Int32?) -> UIImage? {
         var resultImage: UIImage?
-        var cimage: CIImage
-        cimage = CIImage(image: inputImage)!
+        var cimage = CIImage(image: inputImage)!
         
         if orientation != nil {
             cimage = cimage.oriented(forExifOrientation: orientation!)
@@ -140,18 +137,6 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
             filter.setDefaults()
             filter.setValue(cimage, forKey: "inputImage")
             
-            switch currentFilter {
-                
-            case "CISepiaTone", "CIEdges":
-                filter.setValue(0.8, forKey: "inputIntensity")
-                
-            case "CIMotionBlur":
-                filter.setValue(25.00, forKey:"inputRadius")
-                filter.setValue(0.00, forKey:"inputAngle")
-                
-            default:
-                break
-            }
             let ciFilteredImage = filter.outputImage
             let context = CIContext(options: nil)
             let cgImage = context.createCGImage(ciFilteredImage!, from: ciFilteredImage!.extent)
