@@ -19,6 +19,7 @@
 		B05550E4202385BF0089FA55 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05550E3202385BF0089FA55 /* PhotoEditingViewController.swift */; };
 		B05550E7202385BF0089FA55 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05550E5202385BF0089FA55 /* MainInterface.storyboard */; };
 		B05550EB202385BF0089FA55 /* MyPhotoExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B05550DC202385BF0089FA55 /* MyPhotoExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0BF065323293CF40055F48B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BF065223293CF40055F48B /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B05550E3202385BF0089FA55 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
 		B05550E6202385BF0089FA55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B05550E8202385BF0089FA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0BF065223293CF40055F48B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,11 +183,20 @@
 		B05550E2202385BF0089FA55 /* MyPhotoExt */ = {
 			isa = PBXGroup;
 			children = (
+				B0BF065123293CE30055F48B /* Utils */,
 				B05550E3202385BF0089FA55 /* PhotoEditingViewController.swift */,
 				B05550E5202385BF0089FA55 /* MainInterface.storyboard */,
 				B05550E8202385BF0089FA55 /* Info.plist */,
 			);
 			path = MyPhotoExt;
+			sourceTree = "<group>";
+		};
+		B0BF065123293CE30055F48B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF065223293CF40055F48B /* Enums.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0BF065323293CF40055F48B /* Enums.swift in Sources */,
 				B05550E4202385BF0089FA55 /* PhotoEditingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

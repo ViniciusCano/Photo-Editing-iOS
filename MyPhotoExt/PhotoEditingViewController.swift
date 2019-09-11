@@ -18,7 +18,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     var input: PHContentEditingInput?
     var displayedImage: UIImage?
     var imageOrientation: Int32?
-    var currentFilter = "CIColorInvert"
+    var currentFilter: Filter = .invert
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +102,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     
     
     @IBAction func sepiaSelected(_ sender: Any) {
-        currentFilter = "CISepiaTone"
+        currentFilter = .sepia
         
         if displayedImage != nil {
             imageView.image = performFilter(displayedImage!, orientation: nil)
@@ -110,7 +110,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     }
     
     @IBAction func monoSelected(_ sender: Any) {
-        currentFilter = "CIPhotoEffectMono"
+        currentFilter = .mono
         
         if displayedImage != nil {
             imageView.image = performFilter(displayedImage!, orientation: nil)
@@ -118,7 +118,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     }
     
     @IBAction func invertSelected(_ sender: Any) {
-        currentFilter = "CIColorInvert"
+        currentFilter = .invert
         
         if displayedImage != nil {
             imageView.image = performFilter(displayedImage!, orientation: nil)
@@ -133,7 +133,7 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
             cimage = cimage.oriented(forExifOrientation: orientation!)
         }
         
-        if let filter = CIFilter(name: currentFilter) {
+        if let filter = CIFilter(name: currentFilter.rawValue) {
             filter.setDefaults()
             filter.setValue(cimage, forKey: "inputImage")
             
